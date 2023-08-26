@@ -33,6 +33,15 @@
                 
                 </div>
             </div>
+            <div class="mt-8 bg-white p-4 shadow rounded-lg">
+                <h2 class="text-gray-500 text-lg font-semibold pb-4">User Pegawai</h2>
+                <div class="my-1"></div> 
+                <div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div> 
+                <tableUser></tableUser>
+
+            </div>
+
+
 
 
         </div>

@@ -9,9 +9,8 @@ export default {
     onMounted(async () => {
       const response = await fetch("https://dummyjson.com/users");
       const data = await response.json();
-      users.value = data.data;
+      users.value = data.users;
 
-      // Inisialisasi DataTable setelah memperoleh data
       setTimeout(() => {
         $('#myTable').DataTable();
       }, 0);
@@ -39,7 +38,7 @@ export default {
                 <tr v-for="user in users" :key="user.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td class="px-6 py-4">{{ user.firstName }} {{ user.lastName }}</td>
                     <td class="px-6 py-4">{{ user.gender }}</td>
-                    <td class="px-6 py-4">{{ user.address }}</td>
+                    <td class="px-6 py-4">{{ user.address.address }}</td>
                     <td class="px-6 py-4">{{ user.email }}</td>
                 </tr>
             </tbody>
