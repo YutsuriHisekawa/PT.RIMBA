@@ -1,65 +1,3 @@
-<template>
-
-<div class="mt-2 mb-4 flex justify-between items-center">
-          <button @click="toggleSort" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
-            {{ sortDirection === 'asc' ? 'Sort Z - A' : 'Sort A - Z' }}
-          </button>
-      </div>
-      
-  <div class="relative overflow-x-auto">
-      <table class="w-full text-sm text-left text-black " id="myTable">
-          <thead class="text-xs text-black uppercase bg-gray-50 ">
-              <tr>
-                  <th scope="col" class="px-6 py-3">Name</th>
-                  <th scope="col" class="px-6 py-3">Gender</th>
-                  <th scope="col" class="px-6 py-3">Address</th>
-                  <th scope="col" class="px-6 py-3">Email</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr v-for="user in paginatedUsers" :key="user.id" class="bg-white border-b ">
-                  <td class="px-6 py-4 text-black">{{ user.firstName }} {{ user.lastName }}</td>
-                  <td class="px-6 py-4 text-black">{{ user.gender }}</td>
-                  <td class="px-6 py-4 text-black">{{ user.address.address }}</td>
-                  <td class="px-6 py-4 text-black">{{ user.email }}</td>
-              </tr>
-          </tbody>
-      </table>
-
-
-
-      <div class="mt-4 flex justify-between items-center"> 
-          <button  @click="previousPage" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l">
-            Previous
-          </button>
-
-          <div class="flex">
-            <button 
-              v-for="page in pages" 
-              :key="page" 
-              @click="goToPage(page)" 
-              :class="{
-                'rounded-full' : true,
-                'bg-indigo-600 text-black': currentPage === page,
-                'hover:bg-indigo-500': currentPage !== page,
-                'border': true,
-                'border-gray-400': true,
-                'px-3': true,
-                'py-1': true,
-                'mx-1': true
-              }"
-            >
-              {{ page }}
-            </button>
-          </div>
-
-          <button  @click="nextPage" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r">
-            Next
-          </button>
-      </div>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -123,3 +61,66 @@ export default {
   }
 };
 </script>
+
+<template>
+
+<div class="mt-2 mb-4 flex justify-between items-center">
+          <button @click="toggleSort" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+            {{ sortDirection === 'asc' ? 'Sort Z - A' : 'Sort A - Z' }}
+          </button>
+      </div>
+      
+  <div class="relative overflow-x-auto">
+      <table class="w-full text-sm text-left text-black " id="myTable">
+          <thead class="text-xs text-black uppercase bg-gray-50 ">
+              <tr>
+                  <th scope="col" class="px-6 py-3">Name</th>
+                  <th scope="col" class="px-6 py-3">Gender</th>
+                  <th scope="col" class="px-6 py-3">Address</th>
+                  <th scope="col" class="px-6 py-3">Email</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="user in paginatedUsers" :key="user.id" class="bg-white border-b ">
+                  <td class="px-6 py-4 text-black">{{ user.firstName }} {{ user.lastName }}</td>
+                  <td class="px-6 py-4 text-black">{{ user.gender }}</td>
+                  <td class="px-6 py-4 text-black">{{ user.address.address }}</td>
+                  <td class="px-6 py-4 text-black">{{ user.email }}</td>
+              </tr>
+          </tbody>
+      </table>
+
+
+
+      <div class="mt-4 flex justify-between items-center"> 
+          <button  @click="previousPage" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l">
+            Previous
+          </button>
+
+          <div class="flex">
+            <button 
+              v-for="page in pages" 
+              :key="page" 
+              @click="goToPage(page)" 
+              :class="{
+                'rounded-full' : true,
+                'bg-indigo-600 text-black': currentPage === page,
+                'hover:bg-indigo-500': currentPage !== page,
+                'border': true,
+                'border-gray-400': true,
+                'px-3': true,
+                'py-1': true,
+                'mx-1': true
+              }"
+            >
+              {{ page }}
+            </button>
+          </div>
+
+          <button  @click="nextPage" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r">
+            Next
+          </button>
+      </div>
+  </div>
+</template>
+

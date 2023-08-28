@@ -17,7 +17,8 @@
             </div>
 
                  <!-- Grafik -->
-            <div class="mt-8 flex flex-wrap space-x-0 space-y-2 md:space-x-4 md:space-y-0">
+            <div class="mt-8 flex flex-wrap space-x-0 space-y-2 md:space-x-4">
+              
                 <div class="flex-1 bg-white p-4 shadow rounded-lg md:w-1/2">
                     <h2 class="text-black text-lg font-semibold pb-1">Grafik Table Karyawan</h2>
                     <div class="my-1"></div> 
@@ -25,7 +26,7 @@
                 <pie></pie>
                 
                 </div>
-                <div class="flex-1 bg-white shadow rounded-lg ">
+                <div class="flex-1 bg-white p-4 shadow rounded-lg md:w-1/2">
                     <h2 class="text-black text-lg font-semibold pb-1">Income Perusahaan</h2>
                     <div class="my-1"></div> 
                     <div class="bg-gradient-to-r from-lime-300 to-lime-500 h-px mb-6"></div> 
