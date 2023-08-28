@@ -2,7 +2,6 @@
 import { ref, onMounted } from "vue";
 
 export default {
-  name: "DataTable",
   setup() {
     const users = ref([]);
 
@@ -12,8 +11,11 @@ export default {
       users.value = data.users;
 
       setTimeout(() => {
-        $('#myTable').DataTable();
-      }, 0);
+    new DataTable('#myTable', {
+      pagingType: 'full_numbers',
+      pageLength: 10  // Untuk menampilkan maksimal 10 entri per halaman
+    });
+  }, 0);
     });
 
     return {
