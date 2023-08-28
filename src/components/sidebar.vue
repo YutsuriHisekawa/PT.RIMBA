@@ -45,7 +45,7 @@ export default {
     aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 shadow-2xl">
       <a
-        href="https://flowbite.com/"
+        href="#"
         class="flex items-center pl-2.5 mb-5">
         <img
           src="../assets/rimba.png"
