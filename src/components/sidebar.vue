@@ -5,18 +5,25 @@ import { useRouter } from 'vue-router';
 export default {
   setup() {
     const router = useRouter();
+    const username = ref(''); // Inisialisasi ref dengan string kosong
+
+    // Ambil value dari localStorage dan atur ke loggedInUsername
+    username.value = localStorage.getItem('loggedInUsername') || '';
 
     const logout = () => {
-      localStorage.clear();
+      localStorage.removeItem('userToken');
+      localStorage.removeItem('loggedInUsername');
       router.push('/login');
     };
 
     return {
       logout,
+      username
     };
   },
 };
 </script>
+
 
 <template>
   <button
@@ -55,6 +62,8 @@ export default {
           >PT.RIMBA</span
         >
       </a>
+
+      <h1 class="px-10  font-bold"> Welcome {{ username }}</h1>
       <ul class="space-y-2 font-medium">
         <li>
           <RouterLink
