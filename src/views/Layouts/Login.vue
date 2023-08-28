@@ -50,13 +50,22 @@ const login = async () => {
     }
 
     localStorage.setItem('userToken', data.token);
+    
+    // Store the API's username into local storage
+    if (data.username) {
+      localStorage.setItem('loggedInUsername', data.username);
+    } else {
+      // If the response does not contain a username, use the provided one
+      localStorage.setItem('loggedInUsername', username.value);
+    }
+
     router.push({ name: 'Home' });
     location.reload();
     
-  } catch (error) {
+} catch (error) {
     console.error('Error during login:', error);
     errorMessage.value = 'Error ';
-  }
+}
 };
 
 </script>

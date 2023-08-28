@@ -13,6 +13,7 @@ export default {
     const logout = () => {
       localStorage.removeItem('userToken');
       localStorage.removeItem('loggedInUsername');
+      localStorage.removeItem('hasReloaded');
       router.push('/login');
     };
 
