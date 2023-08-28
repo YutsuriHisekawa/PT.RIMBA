@@ -12,13 +12,6 @@ const login = async () => {
   errorMessage.value = '';
 
   //Lokal Akun
-  if (username.value === 'fahrizal' && password.value === 'fahrizal') {
-    console.log('Welcome, fahrizal!');
-    router.push({ name: 'Home' });
-
-    return;
-  }
-
   if (!username.value || !password.value) {
     errorMessage.value = 'Username dan password harus di isi';
     return;

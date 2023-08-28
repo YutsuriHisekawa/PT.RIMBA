@@ -16,8 +16,8 @@ onMounted(() => {
 
 <template>
 
+  <div class="">
   <sidebar v-if="route.path !== '/login'" />
-    <div class="">
       <RouterView></RouterView>
     </div>
 

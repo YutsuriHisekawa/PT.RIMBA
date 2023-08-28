@@ -33,14 +33,17 @@ const router = createRouter({
 
 
 
-// Navigasi Guard
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth) && !localStorage.getItem('userToken')) {
-    // Jika rute memerlukan autentikasi dan user belum login, redirect ke halaman login
-    next('/login');
-  } // Jika user sudah login dan mencoba mengakses halaman login
-  else if (to.path === '/login' && localStorage.getItem('userToken')) {
-    next('/');  // Redirect ke halaman home atau halaman lain yang Anda inginkan
+  // Cek keberadaan token di localStorage untuk menentukan status autentikasi
+  const isAuthenticated = !!localStorage.getItem('userToken');
+  
+  // Jika user mencoba mengakses halaman selain 'Login' dan belum diautentikasi
+  if (to.name !== 'Login' && !isAuthenticated) {
+    next({ name: 'Login' });
+  } 
+  // Jika user sudah diautentikasi dan mencoba mengakses halaman 'Login'
+  else if (to.name === 'Login' && isAuthenticated) {
+    next({ name: 'Home' });  // Misalnya Anda ingin mengalihkan ke halaman 'Home' setelah login
   } 
   else {
     next();
