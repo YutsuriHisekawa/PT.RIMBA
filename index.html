@@ -17,5 +17,33 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+    <script> 
+    document.oncontextmenu = function() {
+    return false;
+};
+</script>
+
+<script>
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && 
+        (e.key === 'U' || 
+         e.key === 'I' ||
+         e.key === 'J' || 
+         e.key === 'C' ||
+         e.key === 'S' ||
+         e.key === 'u' || 
+         e.key === 'i' ||
+         e.key === 'j' || 
+         e.key === 'c' ||
+         e.key === 's')) {
+        alert('Sorry Bro Fungsi ini gw matiin !');
+        return false;
+    }
+    if (e.key === 'F12') {
+        return false;
+    }
+};
+</script>
   </body>
 </html>
