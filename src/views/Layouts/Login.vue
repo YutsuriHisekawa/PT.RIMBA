@@ -18,10 +18,14 @@ const login = async () => {
     console.log('Welcome, fahrizal!');
     const token = generateRandomToken();
     localStorage.setItem('userToken', token);
-    localStorage.setItem('loggedInUsername',username.value)
+    localStorage.setItem('loggedInUsername', username.value);
     router.push({ name: 'Home' });
+    if (!localStorage.getItem('hasReloaded')) {
+        localStorage.setItem('hasReloaded', 'true');
+        location.reload();
+    }
     return;
-  }
+}
 
   if (!username.value || !password.value) {
     errorMessage.value = 'Username dan password harus di isi';
