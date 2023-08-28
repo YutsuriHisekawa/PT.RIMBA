@@ -1,17 +1,27 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-
 const username = ref('');
 const password = ref('');
 const errorMessage = ref('');
-
 const router = useRouter();
+
+const generateRandomToken = () => {
+  return `${Date.now()}-${Math.random().toString(36).substr(2, 16)}`;
+};
 
 const login = async () => {
   errorMessage.value = '';
 
-  //Lokal Akun
+  // Lokal Akun
+  if (username.value === 'fahrizal' && password.value === 'fahrizal') {
+    console.log('Welcome, fahrizal!');
+    const token = generateRandomToken();
+    localStorage.setItem('userToken', token);
+    router.push({ name: 'Home' });
+    return;
+  }
+
   if (!username.value || !password.value) {
     errorMessage.value = 'Username dan password harus di isi';
     return;
@@ -39,9 +49,10 @@ const login = async () => {
     location.reload();
   } catch (error) {
     console.error('Error during login:', error);
-    errorMessage.value = 'Erro ';
+    errorMessage.value = 'Error ';
   }
 };
+
 </script>
 
 <template>
